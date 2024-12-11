@@ -44,3 +44,5 @@ const request = async (
     throw error;
     }
    };
+
+export {request};
