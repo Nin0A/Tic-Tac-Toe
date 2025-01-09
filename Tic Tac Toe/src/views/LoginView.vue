@@ -1,5 +1,4 @@
 <script>
-console.log("LoginView.vue");
 </script>
 <template>
     <div>
