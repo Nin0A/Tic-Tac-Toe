@@ -1,24 +1,33 @@
 <script>
 
 import GameComponent from './GameComponent.vue';
+import '../../assets/css/STYLE_GamesListComponent.css';
 
 export default {
 
   props: {
     games: {
       type: Array,
-      Required: true,
+      required: true,
     },
   },
-  component: {
+  components: {
     GameComponent,
+  },
+  methods: {
+    displayInfos() {
+      console.log(this.games);
+    }
   }
 }
 
 </script>
 
 <template>
-  <div v-for="game in games" :key="game">
+  {{ displayInfos() }}
+  <button>Create New Game</button>
+  <button>Profile</button>
+  <div class="game-list" v-for="game in games" :key="game">
     <GameComponent :game="game" />
   </div>
 </template>

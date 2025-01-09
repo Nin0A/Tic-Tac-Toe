@@ -23,8 +23,13 @@ export default {
       ],
     }
   },
-  component: {
+  components: {
     GamesListComponent,
+  },
+  methods: {
+    displayInfos() {
+      console.log(this.games);
+    }
   }
 }
 
@@ -32,7 +37,8 @@ export default {
 
 <template>
   <h1>Dashboard</h1>
-  <p>Waiting Games : </p>
-  <GameListComponent :games="games" />
+  <p>Waiting Games :</p>
+
+  <GamesListComponent :games="games" />
 
 </template>
