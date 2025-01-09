@@ -10,7 +10,7 @@ const request = async (
     // Définir les en-têtes
     const headers = {
     'Content-Type': 'application/json',
-    ...(!isAuthRequest && token && { Authorization: `Bearer ${token}`
+    ...(isAuthRequest && token && { Authorization: `Bearer ${token}`
    }),
     };
     // Configurer la requête
