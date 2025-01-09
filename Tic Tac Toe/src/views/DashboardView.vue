@@ -16,7 +16,7 @@ export default {
     async fetchGames() {
       try {
         const response = await games_get();
-        this.games = response;
+        this.games = response.data;
         console.log('Games fetched successfully:', this.games);
       } catch (error) {
         console.error('Error fetching games:', error);
