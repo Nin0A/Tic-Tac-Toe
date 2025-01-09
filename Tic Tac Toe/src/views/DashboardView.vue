@@ -1,6 +1,6 @@
 <script>
 import GamesListComponent from '../components/dashboard/GamesListComponent.vue';
-import { games } from '@/services/DataProvider';
+import { games, games_add } from '@/services/DataProvider';
 
 export default {
   data() {
@@ -16,12 +16,21 @@ export default {
     async fetchGames() {
       try {
         const response = await games();
-        this.games = response.data;
+        this.games = response
         console.log('Games fetched successfully:', this.games);
       } catch (error) {
         console.error('Error fetching games:', error);
       }
     },
+
+    async createNewGame() {
+            try{
+                await games_add();
+                this.fetchGames();
+            } catch(e){
+                console.error(e);
+            }
+        },
 
     displayInfos() {
       console.log(this.games);

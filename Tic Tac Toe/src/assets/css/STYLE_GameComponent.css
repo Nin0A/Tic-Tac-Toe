@@ -113,5 +113,8 @@ input {
   padding: 2em 1em 2em 2em;
   border-radius: 8px;
 }
+.game .buttons .play-button {
+  background-color: rgb(140, 255, 140);
+}
 
 /*# sourceMappingURL=STYLE_GameComponent.css.map */

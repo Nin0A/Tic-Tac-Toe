@@ -12,7 +12,7 @@ const games = () => {
 }
 
 const games_add = () => {
-  return request('/games', 'POST', true)
+  return request('/games', 'POST',null, true)
 }
 
 export { login, register, games, games_add }
