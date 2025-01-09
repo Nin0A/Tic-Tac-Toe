@@ -12,10 +12,11 @@ export default {
     methods: {
         async handleLogin() {
             try {
-                await login(this.username, this.password);
-                this.$router.push('/dashboard');
+                const respone = await login(this.username, this.password);
+                localStorage.setItem('token', respone.token);
+                this.$router.push('/');
             } catch (e) {
-                this.error = e.response.data.message;
+                this.error = e;
             }
         }
     }

@@ -1,17 +1,32 @@
 import { createWebHistory, createRouter } from 'vue-router'
+import { isAuthenticated } from '@/services/Authprovider.js'
 
-import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import DashboardView from '../views/DashboardView.vue'
 
-
-
 const routes = [
-  { path: '/', component: HomeView },
-  { path: '/login', component: LoginView },
-  { path: '/register', component: RegisterView },
-  { path: '/dashboard', component: DashboardView }
+  {
+    path: '/login',
+    component: LoginView,
+    name: 'login',
+  },
+  {
+    path: '/register',
+    component: RegisterView,
+    meta: {
+      requireGuest: true,
+    },
+    name: 'register',
+  },
+  {
+    path: '/',
+    component: DashboardView,
+    name: 'dashboard',
+    meta: {
+      requireAuth: true,
+    }
+  }
 
 ]
 
@@ -19,5 +34,22 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
 })
+
+router.beforeEach((to, from, next) => {
+  const isLogged = isAuthenticated();
+  
+  //si la ressource nécessite d'être authentifié et que l'utilisateur n'est pas connecté
+  if (to.meta.requiresAuth && !isLogged) {
+    return next({ name: 'login' }); 
+  }
+  
+  //si la ressource est autorisée aux invités mais que l'user est connecté
+  if (to.meta.requiresGuest && isLogged) {
+    return next({ name: 'dashboard' });
+  }
+
+  //sinon, on laisse passer
+  next();
+});
 
 export default router
