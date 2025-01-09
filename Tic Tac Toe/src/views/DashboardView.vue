@@ -1,6 +1,6 @@
 <script>
 import GamesListComponent from '../components/dashboard/GamesListComponent.vue';
-import { games_add, games } from '@/services/DataProvider';
+import { games } from '@/services/DataProvider';
 
 export default {
   data() {
@@ -22,27 +22,6 @@ export default {
         console.error('Error fetching games:', error);
       }
     },
-
-    // Ajoute une nouvelle partie via l'API
-    async createNewGame() {
-    try {
-      const newGame = {
-        id: "uuid",
-        creator: "uuid",
-        player1: "uuid",
-        player2: null,
-        board: Array(9).fill(null),
-        status: "waiting",
-        currentPlayer: "uuid",
-      };
-
-      const response = await games_add(newGame);
-      console.log('Game added successfully:', response);
-      this.fetchGames();
-    } catch (error) {
-      console.error('Error adding new game:', error);
-    }
-  },
 
     displayInfos() {
       console.log(this.games);
