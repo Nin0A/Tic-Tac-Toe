@@ -1,5 +1,8 @@
 <script>
 
+import '../../assets/css/STYLE_GameComponent.css';
+
+
 export default {
 
   props: {
@@ -14,7 +17,17 @@ export default {
 </script>
 
 <template>
-  <h2>{{ game.playerName }}</h2>
-  <p>coucou</p>
+
+  <article class="game">
+    <div>
+      <h2>{{ game.id }}</h2>
+      <h3>{{ game.date }}</h3>
+    </div>
+    <div class="buttons">
+      <button class="play-button">Play</button>
+      <button class="delete-button">Delete</button>
+    </div>
+
+  </article>
 
 </template>
