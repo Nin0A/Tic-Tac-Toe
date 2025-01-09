@@ -1,6 +1,6 @@
 <script>
 import GamesListComponent from '../components/dashboard/GamesListComponent.vue';
-import { games_add, games_get } from '@/services/DataProvider';
+import { games_add, games } from '@/services/DataProvider';
 
 export default {
   data() {
@@ -15,7 +15,7 @@ export default {
     // Récupère la liste des parties depuis l'API
     async fetchGames() {
       try {
-        const response = await games_get();
+        const response = await games();
         this.games = response.data;
         console.log('Games fetched successfully:', this.games);
       } catch (error) {
