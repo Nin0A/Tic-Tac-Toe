@@ -25,8 +25,7 @@ export default {
 
 <template>
   {{ displayInfos() }}
-  <button>Create New Game</button>
-  <button>Profile</button>
+
   <div class="game-list" v-for="game in games" :key="game">
     <GameComponent :game="game" />
   </div>

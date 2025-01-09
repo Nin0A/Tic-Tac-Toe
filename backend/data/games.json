@@ -1,1 +1,21 @@
-[]
+[
+    {
+        "id": "uuid",
+        "creator": "uuid",
+        "player1": "uuid",
+        "player2": null,
+        "board": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "status": "waiting",
+        "currentPlayer": "uuid"
+    }
+]

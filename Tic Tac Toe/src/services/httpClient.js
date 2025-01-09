@@ -1,9 +1,7 @@
 const BASE_URL = 'http://localhost:3001';
 
+import { removeToken } from "./Authprovider";
 
-function getListGames() {
-
-}
 const request = async (
   endpoint,
   method = 'GET',
@@ -15,7 +13,7 @@ const request = async (
   // Définir les en-têtes
   const headers = {
     'Content-Type': 'application/json',
-    ...(!isAuthRequest && token && {
+    ...(isAuthRequest && token && {
       Authorization: `Bearer ${token}`
     }),
   };
@@ -50,5 +48,6 @@ const request = async (
     throw error;
   }
 };
+
 
 export { request };

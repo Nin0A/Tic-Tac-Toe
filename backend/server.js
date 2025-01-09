@@ -29,8 +29,7 @@ app.use((req, res, next) => {
     res.send = function (body) {
         const duration = Date.now() - start;
         console.log(
-            `${req.method} ${req.url} - ${
-                res.statusCode
+            `${req.method} ${req.url} - ${res.statusCode
             } - ${duration}ms - ${JSON.stringify(body)}`,
         );
         originalSend.call(this, body);
