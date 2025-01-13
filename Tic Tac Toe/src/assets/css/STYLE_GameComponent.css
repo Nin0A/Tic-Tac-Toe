@@ -1,120 +1,37 @@
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-html,
-body,
-div,
-span,
-object,
-iframe,
-figure,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-code,
-em,
-img,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-b,
-u,
-i,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-main,
-canvas,
-embed,
-footer,
-header,
-nav,
-section,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  text-size-adjust: none;
-}
-
-footer,
-header,
-nav,
-section,
-main {
-  display: block;
-}
-
-body {
-  line-height: 1;
-}
-
-ol,
-ul {
-  list-style: none;
-}
-
-blockquote,
-q {
-  quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-input {
-  -webkit-appearance: none;
-  border-radius: 0;
-}
-
+@use 'reset';
 .game {
+  margin: 1em;
   display: flex;
   justify-content: space-between;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 2em 1em 2em 2em;
-  border-radius: 8px;
-}
-.game .buttons .play-button {
-  background-color: rgb(255, 217, 0);
-}
+  border-radius: 8px; }
+  .game h2,
+  .game h3 {
+    margin: 0;
+    font-size: 1em; }
+  .game .status {
+    margin-top: 0.25em;
+    color: #333; }
+  .game .buttons {
+    font-weight: bold;
+    display: flex;
+    gap: 1em;
+    /*align-items: center;*/ }
+    .game .buttons button {
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 4px; }
+      .game .buttons button:hover {
+        cursor: grab; }
+    .game .buttons .play-button {
+      background-color: #d6a400; }
+      .game .buttons .play-button:hover {
+        background-color: #a37d00; }
+    .game .buttons .delete-button {
+      background-color: #ff6464; }
+      .game .buttons .delete-button:hover {
+        background-color: #640000; }
 
 /*# sourceMappingURL=STYLE_GameComponent.css.map */

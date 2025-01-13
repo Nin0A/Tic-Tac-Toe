@@ -1,116 +1,46 @@
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-html,
-body,
-div,
-span,
-object,
-iframe,
-figure,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-code,
-em,
-img,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-b,
-u,
-i,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-main,
-canvas,
-embed,
-footer,
-header,
-nav,
-section,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  text-size-adjust: none;
-}
-
-footer,
-header,
-nav,
-section,
-main {
-  display: block;
-}
-
+@charset "UTF-8";
+@use './reset';
 body {
-  line-height: 1;
-}
-
-ol,
-ul {
-  list-style: none;
-}
-
-blockquote,
-q {
-  quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-input {
-  -webkit-appearance: none;
-  border-radius: 0;
-}
+  font-family: Arial, sans-serif; }
 
 .game-list {
+  height: 85vh;
   margin: 2em;
-}
-.game-list button {
-  padding: 1em 2em;
-}
+  overflow: auto;
+  /* Customisation de la scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: #505a61 #f0f0f0;
+  /* Couleur du thumb et du track */
+  /* Pour les navigateurs basés sur Webkit (Chrome, Safari, Edge) */ }
+  .game-list ::-webkit-scrollbar {
+    width: 12px;
+    /* Largeur de la scrollbar */
+    background-color: #f0f0f0;
+    /* Couleur de fond du track */
+    border-radius: 20px;
+    /* Bords arrondis */ }
+  .game-list ::-webkit-scrollbar-thumb {
+    background-color: #007ccf;
+    /* Couleur du thumb */
+    border-radius: 20px;
+    /* Bords arrondis */
+    border: 3px solid #f0f0f0;
+    /* Bordure du thumb pour un effet de séparation */
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    /* Ombre douce */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    /* Transition pour l'effet au survol */ }
+  .game-list ::-webkit-scrollbar-thumb:hover {
+    background-color: #0099ff;
+    /* Couleur au survol */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    /* Ombre plus marquée au survol */ }
+  .game-list ::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+    /* Couleur de fond du track */
+    border-radius: 20px;
+    /* Bords arrondis du track */ }
+  .game-list button {
+    padding: 1em 2em; }
 
 /*# sourceMappingURL=STYLE_GamesListComponent.css.map */

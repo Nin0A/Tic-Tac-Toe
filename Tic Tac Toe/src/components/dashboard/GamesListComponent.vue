@@ -24,9 +24,11 @@ export default {
 </script>
 
 <template>
-  {{ displayInfos() }}
-
-  <div class="game-list" v-for="game in games" :key="game">
-    <GameComponent :game="game" />
+  <div class="game-list">
+    <GameComponent 
+      v-for="game in games" 
+      :key="game.id" 
+      :game="game" 
+    />
   </div>
 </template>
