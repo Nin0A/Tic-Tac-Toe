@@ -20,8 +20,8 @@ export default {
 
   <article class="game">
     <div>
-      <h2>{{ game.id }}</h2>
-      <h3>{{ game.date }}</h3>
+      <h2>Game: {{ game.id }}</h2>
+      <h3 class="status">Status: {{ game.status }}</h3>
     </div>
     <div class="buttons">
       <button class="play-button">Play</button>
