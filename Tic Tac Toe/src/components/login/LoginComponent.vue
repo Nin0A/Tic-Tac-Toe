@@ -29,6 +29,7 @@ export default {
         <input v-model="username" type="text" placeholder="Username" />
         <input v-model="password" type="password" placeholder="Password" />
         <button @click="handleLogin">Login</button>
+        <p>Don't have an account? <router-link to="/register">Register</router-link></p>
         <p v-if="error" style="color: red">{{ error }}</p>
     </div>
 </template>
