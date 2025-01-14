@@ -19,7 +19,7 @@ export default{
             try{
                 await register(this.username, this.password);
                 this.$router.push('/login');
-            } catch(e){
+            } catch (e) {
                 this.error = e.response.data.message;
             }
         },
@@ -34,6 +34,7 @@ export default{
         <input v-model="password" type="password" placeholder="Password" />
         <input v-model="confirmPassword" type="password" placeholder="Confirm Password" />
         <button @click="handleRegister">Register</button>
+        <p>Already have an account? <router-link to="/login">Login</router-link></p>
         <p v-if="error" style="color: red">{{ error }}</p>
     </div>
 </template>
