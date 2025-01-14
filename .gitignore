@@ -48,4 +48,3 @@ coverage/
 *.tsbuildinfo
 
 backend/data/
-nodemon.json
