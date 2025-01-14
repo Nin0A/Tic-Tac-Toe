@@ -46,3 +46,6 @@ coverage/
 
 # TypeScript cache
 *.tsbuildinfo
+
+backend/data/
+nodemon.json
