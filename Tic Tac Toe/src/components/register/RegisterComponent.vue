@@ -20,8 +20,7 @@ export default{
                 await register(this.username, this.password);
                 this.$router.push('/login');
             } catch (e) {
-                console.error(e);
-                // this.error = e.response.data.message;
+                this.error = e.response.data.message;
             }
         },
     }
