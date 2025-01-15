@@ -45,7 +45,7 @@ export default {
 </script>
 
 <template>
-  <h1>Dashboard</h1>
+  <h1>Tic tac toe</h1>
   <DashboardComponent />
   <p>Waiting Games :</p>
   <button @click="createNewGame">Create New Game</button>

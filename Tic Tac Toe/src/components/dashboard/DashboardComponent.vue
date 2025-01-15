@@ -12,6 +12,6 @@ export default {
 
 <template>
   <div>
-    <h3>Welcome {{ username }}</h3>
+    <h3>Games Dashboard of {{ username }} </h3>
   </div>
 </template>
