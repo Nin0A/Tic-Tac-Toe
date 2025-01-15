@@ -3,7 +3,7 @@ import { getUserIdentity } from '@/services/Authprovider.js';
 export default {
   data() {
     return {
-      user: getUserIdentity(),
+      username: getUserIdentity(),
     };
   },
 };
@@ -12,6 +12,6 @@ export default {
 
 <template>
   <div>
-    <h3>Welcome {{ user }}</h3>
+    <h3>Welcome {{ username }}</h3>
   </div>
 </template>
