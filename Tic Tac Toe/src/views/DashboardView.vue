@@ -45,11 +45,18 @@ export default {
 </script>
 
 <template>
-  <h1>Tic tac toe</h1>
-  <DashboardComponent />
-  <p>Waiting Games :</p>
-  <button @click="createNewGame">Create New Game</button>
-  <button>Profile</button>
+  <header>
+    <h1>Tic tac toe</h1>
+    <DashboardComponent />
+  </header>
+  <div id="dashboard-container">
+     <p>Waiting Games :</p>
+     <div class="dashboard-buttons">
+      <button @click="createNewGame">Create New Game</button>
+      <button>Profile</button>
+     </div>
+  </div>
+ 
 
   <GamesListComponent :games="games" />
 </template>

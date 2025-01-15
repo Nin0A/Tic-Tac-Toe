@@ -1,5 +1,6 @@
 <script>
 import { login } from '@/services/DataProvider.js';
+import { setToken } from '@/services/Authprovider';
 export default {
     data() {
         return {
@@ -14,7 +15,7 @@ export default {
             try {
                 const respone = await login(this.username, this.password);
                 localStorage.setItem('user', JSON.stringify(this.username));
-                localStorage.setItem('token', respone.token);
+                setToken(respone.token);
                 this.$router.push('/');
             } catch (e) {
                 this.error = e;
