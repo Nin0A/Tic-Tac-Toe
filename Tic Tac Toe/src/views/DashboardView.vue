@@ -1,4 +1,5 @@
 <script>
+import DashboardComponent from '@/components/dashboard/DashboardComponent.vue';
 import GamesListComponent from '../components/dashboard/GamesListComponent.vue';
 import { games, games_add } from '@/services/DataProvider';
 
@@ -9,6 +10,7 @@ export default {
     };
   },
   components: {
+    DashboardComponent,
     GamesListComponent,
   },
   methods: {
@@ -44,6 +46,7 @@ export default {
 
 <template>
   <h1>Dashboard</h1>
+  <DashboardComponent />
   <p>Waiting Games :</p>
   <button @click="createNewGame">Create New Game</button>
   <button>Profile</button>
