@@ -2,6 +2,7 @@
 
 import '../../assets/css/STYLE_GameComponent.css';
 import { deleteGame } from '@/services/DataProvider.js';
+import { getUserIdentity } from '@/services/Authprovider.js';
 
 
 export default {
@@ -11,6 +12,11 @@ export default {
       type: Object,
       Required: true,
     },
+  },
+  data() {
+    return {
+      userId: getUserIdentity().id,
+    };
   },
   methods: {
     playGame() {
@@ -39,7 +45,7 @@ export default {
     </div>
     <div class="buttons">
       <button class="play-button" @click="playGame">Play</button>
-      <button class="delete-button" @click="deleteGame">Delete</button>
+      <button v-if="game.creator === userId" class="delete-button" @click="deleteGame">Delete</button>
     </div>
 
   </article>
