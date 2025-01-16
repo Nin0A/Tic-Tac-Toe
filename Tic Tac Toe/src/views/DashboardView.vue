@@ -1,5 +1,7 @@
 <script>
+import DashboardComponent from '@/components/dashboard/DashboardComponent.vue';
 import GamesListComponent from '../components/dashboard/GamesListComponent.vue';
+import { getUserIdentity } from '@/services/Authprovider.js';
 import { games, games_add } from '@/services/DataProvider';
 
 export default {
@@ -9,6 +11,7 @@ export default {
     };
   },
   components: {
+    DashboardComponent,
     GamesListComponent,
   },
   methods: {
@@ -16,7 +19,9 @@ export default {
     async fetchGames() {
       try {
         const response = await games();
-        this.games = response
+        const userId = getUserIdentity().id;
+        this.games = response.filter(game => game.creator === userId || game.player1 === userId || game.player2 === userId);
+
         console.log('Games fetched successfully:', this.games);
       } catch (error) {
         console.error('Error fetching games:', error);
@@ -43,10 +48,20 @@ export default {
 </script>
 
 <template>
-  <h1>Dashboard</h1>
-  <p>Waiting Games :</p>
-  <button @click="createNewGame">Create New Game</button>
-  <button>Profile</button>
+  <header>
+    <h1>Tic tac toe</h1>
+    <DashboardComponent />
+  </header>
+  <div id="dashboard-container">
+     <p>Waiting Games :</p>
+     <div class="dashboard-buttons">
+      <button @click="createNewGame">Create New Game</button>
+      <router-link to="/profile">
+        <button>Profile</button>
+      </router-link>
+     </div>
+  </div>
+ 
 
   <GamesListComponent :games="games" />
 </template>

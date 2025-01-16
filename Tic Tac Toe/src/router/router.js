@@ -4,6 +4,7 @@ import { isAuthenticated } from '@/services/Authprovider.js'
 import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import DashboardView from '../views/DashboardView.vue'
+import ProfileView from '../views/ProfileView.vue'
 
 const routes = [
   {
@@ -23,6 +24,15 @@ const routes = [
     path: '/',
     name: 'dashboard',
     component: DashboardView,
+    meta: {
+      requiresAuth: true,
+    }
+  },
+
+  {
+    path: '/profile',
+    name: 'profile',
+    component: ProfileView,
     meta: {
       requiresAuth: true,
     }

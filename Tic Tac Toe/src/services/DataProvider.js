@@ -15,4 +15,11 @@ const games_add = () => {
   return request('/games', 'POST',null, true)
 }
 
-export { login, register, games, games_add }
+const updateUser = (username, password) => {
+  return request('/user', 'PUT', { username, password }, true)
+}
+const getUser = (id) => {
+  return request(`/user/${id}`, 'GET', null, true)
+}
+
+export { login, register, games, games_add, updateUser, getUser }

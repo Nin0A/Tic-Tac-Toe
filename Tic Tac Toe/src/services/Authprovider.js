@@ -1,4 +1,5 @@
-export{
+import { jwtDecode } from 'jwt-decode'
+export {
     isAuthenticated,
     setToken,
     removeToken,
@@ -17,6 +18,11 @@ function setToken(token){
     localStorage.setItem('token', token);
 }
 
-function getUserIdentity(){
-    return JSON.parse(localStorage.getItem('user'));
+function getUserIdentity() {
+  const token = localStorage.getItem('token');
+  if (token) {
+    const decoded = jwtDecode(token);
+    return decoded;
+  }
+  return null;
 }
