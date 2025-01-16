@@ -2,7 +2,7 @@
 import GameBoardComponent from '@/components/game/GameBoardComponent.vue';
 import GameInfoComponent from '@/components/game/GameInfoComponent.vue';
 import { getUserIdentity } from '@/services/Authprovider.js';
-import { getGame, getUser, joinGame } from '@/services/DataProvider.js';
+import { getGame, getUser, joinGame, makeMove } from '@/services/DataProvider.js';
 
 export default {
   data() {
@@ -61,7 +61,7 @@ export default {
     },
     startPolling() {
       if (this.polling) return;
-      this.polling = setInterval(this.fetchGameState, 10000); // Poll every 10 seconds
+      this.polling = setInterval(this.fetchGameState, 2000); // Poll every 10 seconds
     },
     stopPolling() {
       if (this.polling) {
@@ -77,6 +77,14 @@ export default {
         this.error = error.message;
       }
     },
+    async handleMove(row, col) {
+      try {
+        await makeMove(this.gameId, row, col);
+        await this.fetchGameState();
+      } catch (error) {
+        this.error = error.message;
+      }
+    }
   },
   async created() {
     await this.fetchGameState();
@@ -91,8 +99,11 @@ export default {
 <template>
   <div>
     <GameInfoComponent :gameState="gameState" :playerNames="playerNames" />
-    <GameBoardComponent :board="board" :currentPlayer="currentPlayer" :userId="userId" />
+    <GameBoardComponent :board="board" :currentPlayer="currentPlayer" :userId="userId" :player1="gameState.player1" 
+      :player2="gameState.player2" 
+      :winner="winner" @cell-clicked="handleMove"/>
     <button v-if="gameState && !gameState.player2 && gameState.creator !== userId" @click="joinGame">Join Game</button>
+    <div v-if="error" class="error">{{ error }}</div>
     <router-link to="/">
       <button>Back to Dashboard</button>
     </router-link>

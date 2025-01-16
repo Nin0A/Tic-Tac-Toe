@@ -34,4 +34,9 @@ const joinGame = (gameId) => {
   return request(`/games/${gameId}/join`, 'POST', null, true);
 };
 
-export { login, register, games, games_add, deleteGame, updateUser, getUser, getGame, joinGame };
+const makeMove = (gameId, row, col) => {
+  return request(`/games/${gameId}/move/${row}/${col}`, 'POST', null, true);
+
+}
+
+export { login, register, games, games_add, deleteGame, updateUser, getUser, getGame, joinGame, makeMove };
