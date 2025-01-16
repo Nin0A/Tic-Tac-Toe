@@ -19,8 +19,8 @@ export default {
     async fetchGames() {
       try {
         const response = await games();
-        const userId = getUserIdentity().id;
-        this.games = response.filter(game => game.creator === userId || game.player1 === userId || game.player2 === userId);
+        this.games = response;
+
 
         console.log('Games fetched successfully:', this.games);
       } catch (error) {
@@ -40,6 +40,9 @@ export default {
     displayInfos() {
       console.log(this.games);
     },
+    handleGameDeleted(gameId) {
+      this.games = this.games.filter(game => game.id !== gameId);
+    }
   },
   mounted() {
     this.fetchGames();
@@ -63,5 +66,5 @@ export default {
   </div>
  
 
-  <GamesListComponent :games="games" />
+  <GamesListComponent :games="games"  @gameDeleted="handleGameDeleted"  />
 </template>

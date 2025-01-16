@@ -29,6 +29,9 @@ export default {
     async fetchGameState() {
       try {
         const game = await getGame(this.gameId);
+        if (!game) {
+          throw new Error('Game not found');
+        }
         this.gameState = game;
         console.log(this.gameState);
         this.board = this.formatBoard(game.board);
@@ -46,6 +49,7 @@ export default {
         }
       } catch (error) {
         this.error = error.message;
+        this.$router.push({ name: 'dashboard' });
       }
     },
     formatBoard(flatBoard) {
@@ -88,6 +92,9 @@ export default {
   <div>
     <GameInfoComponent :gameState="gameState" :playerNames="playerNames" />
     <GameBoardComponent :board="board" :currentPlayer="currentPlayer" :userId="userId" />
-    <button v-if="gameState && !gameState.player2" @click="joinGame">Join Game</button>
+    <button v-if="gameState && !gameState.player2 && gameState.creator !== userId" @click="joinGame">Join Game</button>
+    <router-link to="/">
+      <button>Back to Dashboard</button>
+    </router-link>
   </div>
 </template>

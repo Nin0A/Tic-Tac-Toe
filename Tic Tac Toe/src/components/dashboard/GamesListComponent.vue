@@ -17,6 +17,9 @@ export default {
   methods: {
     displayInfos() {
       console.log(this.games);
+    },
+    handleGameDeleted(gameId) {
+      this.$emit('gameDeleted', gameId);
     }
   }
 }
@@ -29,6 +32,7 @@ export default {
       v-for="game in games" 
       :key="game.id" 
       :game="game" 
+      @game-deleted="handleGameDeleted"
     />
   </div>
 </template>
