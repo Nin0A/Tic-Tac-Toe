@@ -1,7 +1,6 @@
 <script>
 import { getUserIdentity, setToken, removeToken } from '@/services/Authprovider.js';
 import { getUser, updateUser } from '@/services/DataProvider.js';
-import { jwtDecode } from 'jwt-decode';
 
 export default {
     data() {

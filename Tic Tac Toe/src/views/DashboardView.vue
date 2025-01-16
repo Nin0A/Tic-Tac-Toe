@@ -1,6 +1,7 @@
 <script>
 import DashboardComponent from '@/components/dashboard/DashboardComponent.vue';
 import GamesListComponent from '../components/dashboard/GamesListComponent.vue';
+import { getUserIdentity } from '@/services/Authprovider.js';
 import { games, games_add } from '@/services/DataProvider';
 
 export default {
@@ -18,7 +19,9 @@ export default {
     async fetchGames() {
       try {
         const response = await games();
-        this.games = response
+        const userId = getUserIdentity().id;
+        this.games = response.filter(game => game.creator === userId || game.player1 === userId || game.player2 === userId);
+
         console.log('Games fetched successfully:', this.games);
       } catch (error) {
         console.error('Error fetching games:', error);
