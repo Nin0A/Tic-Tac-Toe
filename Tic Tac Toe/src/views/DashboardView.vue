@@ -53,7 +53,9 @@ export default {
      <p>Waiting Games :</p>
      <div class="dashboard-buttons">
       <button @click="createNewGame">Create New Game</button>
-      <button>Profile</button>
+      <router-link to="/profile">
+        <button>Profile</button>
+      </router-link>
      </div>
   </div>
  
