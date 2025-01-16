@@ -13,12 +13,31 @@ export default {
       type: String,
       required: true,
     },
+        player1: {
+      type: String,
+      required: true,
+    },
+    player2: {
+      type: String,
+      required: true,
+    },
+    winner: {
+      type: String,
+      required: false,
+    },
   },
   methods: {
     handleCellClick(row, col) {
-      if (this.board[row][col] === null && this.currentPlayer === this.userId) {
-        // TODO: gérer les clics sur les cellules
+      console.log('Cell clicked:', row, col);
+      if (this.board[row][col] === null && this.currentPlayer === this.userId && !this.winner && this.player2) {
+        this.$emit('cell-clicked', row, col);
+        console.log('Cell clicked:', row, col);
       }
+    },
+    getCellSymbol(cell) {
+      if (cell === this.player1) return 'X';
+      if (this.player2 && cell === this.player2) return 'O';
+      return '';
     },
   },
 };
@@ -34,7 +53,7 @@ export default {
         :class="{ 'current-player': currentPlayer === userId }"
         @click="handleCellClick(rowIndex, colIndex)"
       >
-        {{ cell }}
+        {{ getCellSymbol(cell) }}
       </div>
     </div>
   </div>
@@ -61,6 +80,6 @@ export default {
   cursor: pointer;
 }
 .board-cell.current-player {
-  background-color: #f0f0f0;
+  background-color: lightgreen;
 }
 </style>
