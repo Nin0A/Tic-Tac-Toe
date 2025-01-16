@@ -5,6 +5,7 @@ import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import DashboardView from '../views/DashboardView.vue'
 import ProfileView from '../views/ProfileView.vue'
+import GameboardView from '../views/GameboardView.vue'
 
 const routes = [
   {
@@ -33,6 +34,22 @@ const routes = [
     path: '/profile',
     name: 'profile',
     component: ProfileView,
+    meta: {
+      requiresAuth: true,
+    }
+  },
+
+    {
+    path: '/profile',
+    name: 'profile',
+    component: ProfileView,
+    meta: {
+      requiresAuth: true,
+    }
+  },  {
+    path: '/gameboard/:gameId',
+    name: 'gameboard',
+    component: GameboardView,
     meta: {
       requiresAuth: true,
     }

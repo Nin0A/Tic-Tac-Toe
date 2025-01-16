@@ -15,6 +15,10 @@ const games_add = () => {
   return request('/games', 'POST',null, true)
 }
 
+const getGame = (id) => {
+  return request(`/games/${id}`, 'GET', null, true)
+}
+
 const updateUser = (username, password) => {
   return request('/user', 'PUT', { username, password }, true)
 }
@@ -22,4 +26,8 @@ const getUser = (id) => {
   return request(`/user/${id}`, 'GET', null, true)
 }
 
-export { login, register, games, games_add, updateUser, getUser }
+const joinGame = (gameId) => {
+  return request(`/games/${gameId}/join`, 'POST', null, true);
+};
+
+export { login, register, games, games_add, updateUser, getUser, getGame, joinGame };

@@ -9,7 +9,11 @@ export default {
     game: {
       type: Object,
       Required: true,
-
+    },
+  },
+  methods: {
+    playGame() {
+      this.$router.push({ name: 'gameboard', params: { gameId: this.game.id } });
     },
   },
 }
@@ -24,7 +28,7 @@ export default {
       <h3 class="status">Status: {{ game.status }}</h3>
     </div>
     <div class="buttons">
-      <button class="play-button">Play</button>
+      <button class="play-button" @click="playGame">Play</button>
       <button class="delete-button">Delete</button>
     </div>
 
