@@ -102,10 +102,50 @@ export default {
     <GameBoardComponent :board="board" :currentPlayer="currentPlayer" :userId="userId" :player1="gameState.player1" 
       :player2="gameState.player2" 
       :winner="winner" @cell-clicked="handleMove"/>
-    <button v-if="gameState && !gameState.player2 && gameState.creator !== userId" @click="joinGame">Join Game</button>
+    <div class="join-button">
+      <button v-if="gameState && !gameState.player2 && gameState.creator !== userId" @click="joinGame">Join Game</button>
+    </div>
     <div v-if="error" class="error">{{ error }}</div>
     <router-link to="/">
-      <button>Back to Dashboard</button>
+      <div class="back-button">
+        <button>Back to Dashboard</button>
+      </div>
     </router-link>
   </div>
 </template>
+
+
+<style>
+
+.back-button{
+
+  display: flex;
+  justify-content: center;
+}
+
+.back-button>button{
+    background-color: #b61921;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: max-content;
+    align-self: center;
+    text-decoration: none;
+}
+
+.back-button>button:hover{
+  background-color: #640f13;
+}
+
+.join-button{
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+}
+
+
+</style>

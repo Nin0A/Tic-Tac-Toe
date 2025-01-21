@@ -1,0 +1,33 @@
+@use 'reset';
+.dashboard-buttons {
+  display: flex;
+  gap: 1em; }
+  .dashboard-buttons button {
+    display: flex;
+    gap: 0.5em;
+    color: white;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: max-content;
+    align-self: center;
+    align-items: center; }
+    .dashboard-buttons button:first-child {
+      background-color: #1d8821; }
+      .dashboard-buttons button:first-child::before {
+        color: white;
+        content: url("../img/add.svg"); }
+      .dashboard-buttons button:first-child:hover {
+        background-color: #145e16; }
+    .dashboard-buttons button:last-child {
+      background-color: #393cff; }
+      .dashboard-buttons button:last-child::before {
+        color: white;
+        content: url("../img/refresh.svg"); }
+      .dashboard-buttons button:last-child:hover {
+        background-color: #2224a1; }
+
+/*# sourceMappingURL=STYLE_DashboardView.css.map */

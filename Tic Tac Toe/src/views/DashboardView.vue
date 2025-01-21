@@ -1,6 +1,7 @@
 <script>
 import DashboardComponent from '@/components/dashboard/DashboardComponent.vue';
 import GamesListComponent from '../components/dashboard/GamesListComponent.vue';
+import '../assets/css/STYLE_DashboardView.css';
 import { getUserIdentity } from '@/services/Authprovider.js';
 import { games, games_add } from '@/services/DataProvider';
 
@@ -42,6 +43,9 @@ export default {
     },
     handleGameDeleted(gameId) {
       this.games = this.games.filter(game => game.id !== gameId);
+    },
+    refresh() {
+      this.fetchGames();
     }
   },
   mounted() {
@@ -59,9 +63,9 @@ export default {
      <p>Waiting Games :</p>
      <div class="dashboard-buttons">
       <button @click="createNewGame">Create New Game</button>
-      <router-link to="/profile">
-        <button>Profile</button>
-      </router-link>
+      <button @click="refresh">Refresh</button>
+
+     
      </div>
   </div>
  

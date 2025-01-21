@@ -1,0 +1,75 @@
+@use 'reset';
+@use 'sass:math';
+
+.game-board {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    width: 30%;
+    aspect-ratio: 1 / 1;
+    justify-self: center;
+    gap: 1em;
+    background-color: #ddd;
+    padding: 1em;
+    border-radius: 20px;
+}
+
+.board-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 1em;
+
+
+}
+
+.board-cell {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    /* Bordures légèrement arrondies */
+    overflow: hidden;
+    background-color: #f9f9f9;
+    /* Fond clair par défaut */
+    transition: background-color 0.3s, transform 0.2s;
+    /* Effet interactif */
+    border-radius: 16px;
+
+    img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+    }
+
+}
+
+.board-cell:hover {
+    background-color: #41595f54;
+    /* Fond plus sombre au survol */
+    transform: scale(1.05);
+    /* Zoom léger pour plus d'interaction */
+}
+
+.board-cell.active {
+    background-color: #d3ffd4;
+    /* Fond spécial pour les cases actives */
+}
+
+.board-cell.winning {
+    background-color: #ffef96;
+    /* Fond spécial pour les cases gagnantes */
+}
+
+
+
+
+
+.board-cell.current-player {
+
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.116);
+    }
+}

@@ -1,4 +1,7 @@
 <script>
+
+import '../../assets/css/STYLE_GameBoardComponent.css';
+
 export default {
   props: {
     board: {
@@ -35,8 +38,8 @@ export default {
       }
     },
     getCellSymbol(cell) {
-      if (cell === this.player1) return 'X';
-      if (this.player2 && cell === this.player2) return 'O';
+      if (cell === this.player1) return '/src/assets/img/x.svg';
+      if (this.player2 && cell === this.player2) return '/src/assets/img/o.svg';
       return '';
     },
   },
@@ -49,37 +52,16 @@ export default {
       <div
         v-for="(cell, colIndex) in row"
         :key="colIndex"
+        :id="`cell-${rowIndex}-${colIndex}`"
         class="board-cell"
         :class="{ 'current-player': currentPlayer === userId }"
         @click="handleCellClick(rowIndex, colIndex)"
       >
-        {{ getCellSymbol(cell) }}
+      <img v-if="getCellSymbol(cell)" :src="getCellSymbol(cell)" alt="Symbol" />
+
       </div>
     </div>
   </div>
 </template>
 
-<style>
-.game-board {
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  gap: 10px;
-}
-.board-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-.board-cell {
-  width: 100px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #000;
-  cursor: pointer;
-}
-.board-cell.current-player {
-  background-color: lightgreen;
-}
-</style>
+

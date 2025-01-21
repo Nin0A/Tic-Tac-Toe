@@ -1,0 +1,51 @@
+@use 'reset';
+
+.dashboard-buttons {
+
+    display: flex;
+    gap: 1em;
+
+    button {
+        display: flex;
+        gap: 0.5em;
+        color: white;
+        padding: 8px 16px;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: max-content;
+        align-self: center;
+
+        align-items: center;
+
+        &:first-child {
+            background-color: #1d8821;
+
+            &::before {
+                color: white;
+                content: url('../img/add.svg')
+            }
+
+            &:hover {
+                background-color: #145e16;
+
+            }
+        }
+
+        &:last-child {
+            background-color: #393cff;
+
+            &::before {
+                color: white;
+                content: url('../img/refresh.svg')
+            }
+
+            &:hover {
+                background-color: #2224a1;
+
+            }
+        }
+    }
+}

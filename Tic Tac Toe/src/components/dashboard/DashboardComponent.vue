@@ -1,4 +1,5 @@
 <script>
+import '../../assets/css/STYLE_DashboardComponent.css';
 import { getUserIdentity, removeToken } from '@/services/Authprovider.js';
 export default {
   data() {
@@ -20,7 +21,13 @@ export default {
 
 <template>
   <div>
-    <h3>Games Dashboard of {{ username }} </h3>
+    <h3>Dashboard of {{ username }} </h3>
   </div>
-  <button @click="logout">Logout</button>
+
+  <div class="button-container">
+    <button @click="logout">Logout</button>
+    <router-link to="/profile">
+          <button>Profile</button>
+        </router-link>
+  </div>
 </template>

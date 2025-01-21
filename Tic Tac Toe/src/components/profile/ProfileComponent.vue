@@ -1,4 +1,6 @@
 <script>
+import '../../assets/css/STYLE_ProfileComponent.css';
+
 import { getUserIdentity, setToken, removeToken } from '@/services/Authprovider.js';
 import { getUser, updateUser } from '@/services/DataProvider.js';
 
@@ -46,23 +48,30 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="container">
     <h1>Profile</h1>
     <h3>Here you can update your profile</h3>
+    
+    <div>
     <router-link to="/">
       <button>Return</button>
     </router-link>
-    <button @click="logout">Logout</button>
+    
+    <button class="logout-button" @click="logout">Logout</button>
   </div>
-
-  <div class="form-container">
-    <form @submit.prevent="updateUser">
-      <label>Username</label>
-      <input v-model="newUsername" type="text" placeholder="Username" />
-      <label>Password</label>
-      <input v-model="newPassword" type="password" placeholder="Password" />
-      <button type="submit">Update</button>
-    </form>
-    <p v-if="error" style="color: red">{{ error }}</p>
+    
+    <div class="form-container">
+      <form @submit.prevent="updateUser">
+        <label>Username</label>
+        <input v-model="newUsername" type="text" placeholder="Username" />
+        
+        <label>Password</label>
+        <input v-model="newPassword" type="password" placeholder="Password" />
+        
+        <button type="submit">Update</button>
+      </form>
+      
+      <p v-if="error">{{ error }}</p>
+    </div>
   </div>
 </template>

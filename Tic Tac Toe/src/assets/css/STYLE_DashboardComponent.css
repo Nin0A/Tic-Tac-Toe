@@ -1,0 +1,26 @@
+.button-container {
+  display: flex;
+  gap: 1em; }
+  .button-container button {
+    display: flex;
+    gap: 0.5em;
+    color: white;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: max-content;
+    align-self: center;
+    align-items: center; }
+    .button-container button:first-child {
+      background-color: #d32d2d; }
+      .button-container button:first-child:hover {
+        background-color: #881c1c; }
+    .button-container button:last-child {
+      background-color: #fd8624; }
+      .button-container button:last-child:hover {
+        background-color: #9b5318; }
+
+/*# sourceMappingURL=STYLE_DashboardComponent.css.map */
